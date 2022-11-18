@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">My Foraging Assistant</string>
+
+<!-- Main Activity Forms -->
+    <string name="contact_text_view">Name</string>
+    <string name="address_text_view">Type</string>
+    <string name="home_text_view">Yield</string>
+    <string name="cell_text_view">text view 4</string>
+    <string name="birthday_text_view">Harvest Date: </string>
+    <string name="birthday_default_text">01/01/1990</string>
+
+    <string name="name_hint_edit_text">Food or Resource Name</string>
+    <string name="address_hint_edit_text">Type</string>
+    <string name="home_hint_edit_text">Yield in Weight</string>
+    <string name="email_text_view">edit text 4</string>
+
+    <string name="city_hint_edit_text">hint edit text 1</string>
+    <string name="state_hint_edit_text">hint edit text 2</string>
+    <string name="zip_hint_edit_text">hint edit text 3</string>
+    <string name="cell_hint_edit_text">hint text 4</string>
+
+    <string name="email_hint_edit_text">hint text 5</string>
+    <string name="birthday">Harvest Date</string>
+
+    <string name="button_location">Record Location</string>
+    <string name="button_save">SAVE</string>
+    <string name="button_list_view">VIEW LIST</string>
+
+
+</resources>
