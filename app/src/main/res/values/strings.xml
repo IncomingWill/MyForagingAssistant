@@ -25,6 +25,7 @@
     <string name="button_location">Record Location</string>
     <string name="button_save">SAVE</string>
     <string name="button_list_view">VIEW LIST</string>
+    <string name="content_description_forage_photo">Take Photo of Find</string>
 
 
 </resources>

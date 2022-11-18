@@ -25,12 +25,12 @@
     android:id="@+id/activity_main"
     >
 
-    <ScrollView
-        android:id="@+id/scrollView"
+    <LinearLayout
+        android:id="@+id/topLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/middleLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -56,13 +56,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="14"
-                android:inputType="textPersonName"
                 android:hint="@string/name_hint_edit_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textContact"
-
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
                 android:nextFocusDown="@id/editTextType"
-                android:imeOptions="actionNext" >
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textContact">
 
                 <requestFocus />
             </EditText>
@@ -84,14 +84,13 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="16"
-                android:inputType="textPersonName"
                 android:hint="@string/address_hint_edit_text"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewType"
-
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName"
                 android:nextFocusDown="@id/editTextYield"
-                android:imeOptions="actionNext" >
-            </EditText>
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewType"></EditText>
 
             <TextView
                 android:id="@+id/textViewYield"
@@ -110,39 +109,14 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:ems="8"
-                android:inputType="phone"
                 android:hint="@string/home_hint_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/textViewYield"
-                app:layout_constraintStart_toStartOf="parent"
-
-
-                android:nextFocusDown="@id/editEMail"
-                android:imeOptions="actionNext" />
-
-            <TextView
-                android:id="@+id/textEMail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/email_text_view"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextYield" />
-
-            <EditText
-                android:id="@+id/editEMail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:ems="16"
-                android:inputType="textEmailAddress"
-                android:hint="@string/email_hint_edit_text"
-                app:layout_constraintTop_toBottomOf="@+id/textEMail"
-                app:layout_constraintStart_toStartOf="parent"
-
+                android:imeOptions="actionNext"
+                android:inputType="phone"
                 android:nextFocusDown="@id/buttonHarvestDate"
-                android:imeOptions="actionNext" />
+
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewYield" />
 
             <TextView
                 android:id="@+id/textViewHarvestDate"
@@ -152,7 +126,7 @@
                 android:layout_marginTop="24dp"
                 android:text="@string/birthday_text_view"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editEMail" />
+                app:layout_constraintTop_toBottomOf="@+id/editTextYield" />
 
             <TextView
                 android:id="@+id/textViewDisplayHarvestDate"
@@ -161,8 +135,8 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/birthday_default_text"
-                app:layout_constraintTop_toBottomOf="@id/editEMail"
-                app:layout_constraintStart_toEndOf="@id/textViewHarvestDate"/>
+                app:layout_constraintStart_toEndOf="@id/textViewHarvestDate"
+                app:layout_constraintTop_toBottomOf="@id/editTextYield" />
 
             <Button
                 android:id="@+id/buttonHarvestDate"
@@ -170,24 +144,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:nextFocusDown="@id/buttonRecordLocation"
                 android:text="@string/birthday"
                 app:layout_constraintBaseline_toBaselineOf="@id/textViewDisplayHarvestDate"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textViewDisplayHarvestDate"
-                android:nextFocusDown="@id/buttonRecordLocation"
-                android:imeOptions="actionNext" >/>
-
-            <ImageButton
-                android:id="@+id/imageForage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="48dp"
-                android:layout_marginEnd="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/buttonRecordLocation"
-                app:srcCompat="@drawable/noimage" />
+                app:layout_constraintStart_toEndOf="@+id/textViewDisplayHarvestDate" />
 
             <Button
                 android:id="@+id/buttonRecordLocation"
@@ -200,8 +161,29 @@
                 app:layout_constraintTop_toBottomOf="@id/textViewHarvestDate" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
-    </ScrollView>
+    <LinearLayout
+        android:id="@+id/middleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/bottomLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topLayout">
+
+        <ImageButton
+            android:id="@+id/imageForage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/content_description_forage_photo"
+            app:srcCompat="@drawable/noimage" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/bottomLayout"
@@ -225,7 +207,6 @@
                 android:layout_marginBottom="8dp"
                 android:text="@string/button_save"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintBottom_to_bottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
@@ -237,7 +218,6 @@
                 android:layout_marginBottom="8dp"
                 android:text="@string/button_list_view"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintBottom_to_bottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/buttonSave" />
 
