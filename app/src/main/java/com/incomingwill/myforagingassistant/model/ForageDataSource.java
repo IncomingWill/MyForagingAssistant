@@ -142,28 +142,6 @@ public class ForageDataSource {
         return lastId;
     }
 
-    //arraylist of strings to get Forage names from database
-    public ArrayList<String> getForageNames() {
-        ArrayList<String> forageNames = new ArrayList<>();
-        try {
-            String query = "Select foragename from forage";
-            Cursor cursor = database.rawQuery(query, null);
-
-            //use cursor to loop through each forage
-            //while is not after the last entry, add forage name to array list
-            cursor.moveToFirst();
-            while (!cursor.isAfterLast()) {
-                forageNames.add(cursor.getString(0));
-                cursor.moveToNext();
-            }
-            cursor.close();
-        }
-        catch (Exception e) {
-            forageNames = new ArrayList<String>();
-        }
-        return forageNames;
-    }
-
     //create empty array list, and fill with Forages from db
     public ArrayList<Forage> getForages(String sortField, String sortOrder) {
         ArrayList<Forage> forages = new ArrayList<Forage>();
