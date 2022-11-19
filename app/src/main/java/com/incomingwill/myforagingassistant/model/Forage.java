@@ -12,9 +12,12 @@ package com.incomingwill.myforagingassistant.model;
  */
 
 import android.graphics.Bitmap;
+import android.text.format.DateFormat;
 import android.util.Log;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class Forage {
 
@@ -92,6 +95,14 @@ public class Forage {
     public String getYieldString() {
         String yieldString = String.valueOf(this.forageYield);
         return yieldString;
+    }
+
+    public String getDateString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy");
+        Calendar c = this.getHarvestDate();
+        Date date = c.getTime();
+        String d = sdf.format(date);
+        return d;
     }
 
     public String getLatitudeString() {

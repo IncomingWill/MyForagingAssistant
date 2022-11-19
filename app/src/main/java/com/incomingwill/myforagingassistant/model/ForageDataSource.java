@@ -148,7 +148,7 @@ public class ForageDataSource {
             String query = "Select foragename from forage";
             Cursor cursor = database.rawQuery(query, null);
 
-            //use cursor to loop through each contact
+            //use cursor to loop through each forage
             //while is not after the last entry, add forage name to array list
             cursor.moveToFirst();
             while (!cursor.isAfterLast()) {

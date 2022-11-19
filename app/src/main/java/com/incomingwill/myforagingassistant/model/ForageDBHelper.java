@@ -9,7 +9,7 @@ package com.incomingwill.myforagingassistant.model;
 
 /*
  *  database version 1
- *      try statement to add contactphoto blob column to rating table
+ *      try statement to add forage photo blob column to forage table
  */
 
 import android.content.Context;
@@ -18,11 +18,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class ForageDBHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "myratings.db";
+    private static final String DATABASE_NAME = "myforages.db";
     private static final int DATABASE_VERSION = 2;
 
     // Database creation sql statement
-    private static final String CREATE_TABLE_RATING =
+    private static final String CREATE_TABLE_FORAGE =
             "create table forage (_id integer primary key autoincrement, "
                     + "foragename text not null, foragetype text, "
                     + "forageyield float(8), harvestdate text, latitude float(8), "
@@ -34,7 +34,7 @@ public class ForageDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE_RATING);
+        db.execSQL(CREATE_TABLE_FORAGE);
     }
 
     @Override

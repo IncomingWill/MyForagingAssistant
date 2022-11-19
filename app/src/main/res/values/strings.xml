@@ -1,31 +1,63 @@
 <resources>
     <string name="app_name">My Foraging Assistant</string>
 
-<!-- Main Activity Forms -->
-    <string name="contact_text_view">Name</string>
-    <string name="address_text_view">Type</string>
-    <string name="home_text_view">Yield</string>
-    <string name="cell_text_view">text view 4</string>
-    <string name="birthday_text_view">Harvest Date: </string>
-    <string name="birthday_default_text">01/01/1990</string>
+<!-- Main Activity -->
+    <!-- text view Form Headings -->
 
+    <!-- Edit Text Forms -->
     <string name="name_hint_edit_text">Food or Resource Name</string>
     <string name="address_hint_edit_text">Type</string>
     <string name="home_hint_edit_text">Yield in Weight</string>
-    <string name="email_text_view">edit text 4</string>
 
-    <string name="city_hint_edit_text">hint edit text 1</string>
-    <string name="state_hint_edit_text">hint edit text 2</string>
-    <string name="zip_hint_edit_text">hint edit text 3</string>
-    <string name="cell_hint_edit_text">hint text 4</string>
+    <!-- Text View -->
+    <string name="default_text_date">01/01/1990</string>
 
-    <string name="email_hint_edit_text">hint text 5</string>
-    <string name="birthday">Harvest Date</string>
-
+    <!-- Buttons -->
+    <string name="button_harvest_date">Harvest Date</string>
     <string name="button_location">Record Location</string>
-    <string name="button_save">SAVE</string>
+    <string name="button_save">Save</string>
     <string name="button_list_view">VIEW LIST</string>
+
     <string name="content_description_forage_photo">Take Photo of Find</string>
 
+<!-- Date Dialog -->
+    <string name="button_dialog_cancel">Cancel</string>
+    <string name="button_dialog_select">Select</string>
+    <string name="title_dialog">Select Date</string>
+
+<!-- List Activity -->
+    <!-- Title -->
+    <string name="forage_list">Forage List</string>
+
+    <!-- Text Views -->
+    <string name="text_view_display_name">name</string>
+    <string name="text_view_display_type">type</string>
+    <string name="text_view_display_yield">yield</string>
+    <string name="text_view_display_date">date</string>
+
+    <!-- Buttons -->
+    <string name="button_main_view">New Forage</string>
+    <string name="button_delete">Delete</string>
+
+    <!-- Switches -->
+    <string name="switch_delete">Delete</string>
+
+
+
+<!-- Main and List Activity -->
+    <!-- Text Views -->
+    <string name="text_view_name">Name: </string>
+    <string name="text_view_type">Type: </string>
+    <string name="text_view_yield">Yield: </string>
+    <string name="text_view_date">Harvest Date: </string>
+
+<!-- Settings -->
+    <string name="my_forage_list_preferences">MyContactListPreferences</string>
+    <string name="sort_field">sortfield</string>
+    <string name="settings_name">foragename</string>
+    <string name="sort_order">sortorder</string>
+
+<!-- Map Activity -->
+    <string name="text_view_map_forage_name">forage name</string>
 
 </resources>

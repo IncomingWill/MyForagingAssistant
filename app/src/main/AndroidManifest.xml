@@ -2,6 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <!-- maps -->
+    <permission
+        android:name="com.incomingwill.myforagingassistant.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="com.incomingwill.contactList.permission.MAPS_RECEIVE" />
+
+    <!-- camera -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +28,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyForagingAssistant"
         tools:targetApi="31">
+        <activity
+            android:name=".view.ListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.MapActivity"
+            android:exported="false" />
         <activity
             android:name=".view.MainActivity"
             android:exported="true">
@@ -25,6 +47,15 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="***REMOVED***" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
     </application>
 
 </manifest>
