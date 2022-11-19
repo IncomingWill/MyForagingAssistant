@@ -9,9 +9,9 @@
 
 <!--
     Top, Middle, and Bottom Linear Layouts in a Constraint layout
-    Top and Bottom have their own constraint layouts
-    Top holds the text fields and buttons for data
-    Middle holds the image button
+    Each have their own constraint layouts
+    Top holds the text fields, buttons for data, and image button
+    Middle holds the radio buttons for dictating shared preferences
     Bottom holds buttons for save and to list layout
 -->
 
@@ -22,8 +22,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="view.MainActivity"
-    android:id="@+id/activity_main"
-    >
+    android:id="@+id/activity_main" >
 
     <LinearLayout
         android:id="@+id/topLayout"
@@ -59,7 +58,9 @@
                 android:hint="@string/name_hint_edit_text"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
+                android:minHeight="48dp"
                 android:nextFocusDown="@id/editTextMainType"
+                android:textColorHint="#00838F"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMainName">
 
@@ -82,10 +83,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:ems="16"
+                android:ems="8"
                 android:hint="@string/address_hint_edit_text"
                 android:imeOptions="actionNext"
                 android:inputType="textPersonName"
+                android:minHeight="48dp"
                 android:nextFocusDown="@id/editTextMainYield"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMainType" />
@@ -110,7 +112,9 @@
                 android:hint="@string/home_hint_edit_text"
                 android:imeOptions="actionNext"
                 android:inputType="phone"
+                android:minHeight="48dp"
                 android:nextFocusDown="@id/buttonHarvestDate"
+                android:textColorHint="#757575"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewMainYield" />
 
@@ -156,6 +160,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewMainDate" />
 
+            <ImageButton
+                android:id="@+id/imageForage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginEnd="64dp"
+
+                android:layout_marginBottom="48dp"
+                android:contentDescription="@string/content_description_forage_photo"
+                app:layout_constraintBottom_toTopOf="@+id/buttonHarvestDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/noimage" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 
@@ -169,16 +186,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/topLayout">
 
-        <ImageButton
-            android:id="@+id/imageForage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/content_description_forage_photo"
-            app:srcCompat="@drawable/noimage" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioGroup
+                android:id="@+id/radioGroupSort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/textViewSortList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/text_view_sort_by"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editTextMainType" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonByType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="64dp"
+                    android:text="@string/radio_button_sort_by_type" />
+
+                <RadioButton
+                    android:id="@+id/radioButtonByName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/radio_button_sort_by_name" />
+
+            </RadioGroup>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
 

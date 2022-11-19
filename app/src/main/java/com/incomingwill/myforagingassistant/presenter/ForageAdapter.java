@@ -1,4 +1,3 @@
-
 /*
  *  Document   : Forage Adapter
  *  Created on : 11.17.22

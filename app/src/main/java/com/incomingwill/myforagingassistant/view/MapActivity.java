@@ -1,3 +1,14 @@
+/*
+ *  Document   : Forage Map Class
+ *  Created on : 11.17.22
+ *  @author incomingWill
+ *  CPS 435 Final Program
+ */
+
+/*
+ *  Map View Object to display location of Forage selected from List Activity
+ */
+
 package com.incomingwill.myforagingassistant.view;
 
 import android.content.Intent;
@@ -40,6 +51,8 @@ public class MapActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+        this.setTitle(R.string.forage_map);
 
         //private variable to provide association between activities
         currentForage = new Forage();

@@ -2,7 +2,8 @@
     <string name="app_name">My Foraging Assistant</string>
 
 <!-- Main Activity -->
-    <!-- text view Form Headings -->
+    <!-- Title -->
+    <string name="forage_main">Forage Form</string>
 
     <!-- Edit Text Forms -->
     <string name="name_hint_edit_text">Food or Resource Name</string>
@@ -11,6 +12,7 @@
 
     <!-- Text View -->
     <string name="default_text_date">01/01/1990</string>
+    <string name="text_view_sort_by">Sort List By: </string>
 
     <!-- Buttons -->
     <string name="button_harvest_date">Harvest Date</string>
@@ -42,7 +44,11 @@
     <!-- Switches -->
     <string name="switch_delete">Delete</string>
 
+<!-- Map Activity -->
+    <!-- Title -->
+    <string name="forage_map">Forage Map</string>
 
+    <string name="text_view_map_forage_name">forage name</string>
 
 <!-- Main and List Activity -->
     <!-- Text Views -->
@@ -51,13 +57,13 @@
     <string name="text_view_yield">Yield: </string>
     <string name="text_view_date">Harvest Date: </string>
 
-<!-- Settings -->
-    <string name="my_forage_list_preferences">MyContactListPreferences</string>
+    <!-- Settings -->
+    <string name="my_forage_list_preferences">MyForageListPreferences</string>
     <string name="sort_field">sortfield</string>
     <string name="settings_name">foragename</string>
+    <string name="settings_type">foragetype</string>
     <string name="sort_order">sortorder</string>
-
-<!-- Map Activity -->
-    <string name="text_view_map_forage_name">forage name</string>
+    <string name="radio_button_sort_by_name">sort by name</string>
+    <string name="radio_button_sort_by_type">sort by type</string>
 
 </resources>

@@ -29,6 +29,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -82,36 +84,17 @@ public class ListActivity extends AppCompatActivity {
 
         initNewForageButton();
 
-        getSharedPreferences(
-                getString(R.string.my_forage_list_preferences),
-                Context.MODE_PRIVATE)
-                .edit()
-                .putString(
-                        getString(R.string.sort_order),
-                        "ASC")
-                .apply();
-
-        getSharedPreferences(
-                getString(R.string.my_forage_list_preferences),
-                Context.MODE_PRIVATE)
-                .edit()
-                .putString(
-                        getString(R.string.sort_field),
-                        getString(R.string.settings_name))
-                .apply();
-
-        //display by sortfield, restaurant name is default
+        //display by sortfield, forage name is default
         String sortBy = getSharedPreferences(
                 "MyForageListPreferences", Context.MODE_PRIVATE)
                 .getString("sortfield", "foragename");
 
-        //display by sortorder, default ascending
+        //display ascending sortorder
         String sortOrder = getSharedPreferences(
                 "MyForageList", Context.MODE_PRIVATE)
                 .getString("sortorder", "ASC");
 
         ForageDataSource ds = new ForageDataSource(this);
-        //ArrayList<Forage> forages;
 
         try {
             //open database, get forages, close
@@ -152,6 +135,61 @@ public class ListActivity extends AppCompatActivity {
         initDeleteSwitch();
 
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        //display by sortfield, forage name is default
+        String sortBy = getSharedPreferences(
+                "MyForageListPreferences", Context.MODE_PRIVATE)
+                .getString("sortfield", "foragename");
+
+        //display ascending sortorder
+        String sortOrder = getSharedPreferences(
+                "MyForageList", Context.MODE_PRIVATE)
+                .getString("sortorder", "ASC");
+
+        ForageDataSource ds = new ForageDataSource(this);
+
+        try {
+            //open database, get forages, close
+            ds.open();
+            forages = ds.getForages(sortBy, sortOrder);
+            ds.close();
+
+            //if 0 greater than 0, store forage rows from database in forages
+            //then display in recycler view
+            //else, go to main activity to edit empty forage
+            if (forages.size() > 0) {
+                RecyclerView forageList = findViewById(R.id.rvForages);
+                RecyclerView.LayoutManager layoutManager
+                        = new LinearLayoutManager(this);
+                forageList.setLayoutManager(layoutManager);
+                ForageAdapter forageAdapter
+                        = new ForageAdapter(forages, this);
+                forageAdapter.setOnItemClickListener(onItemClickListener);
+                forageList.setAdapter(forageAdapter);
+            }
+            else {
+                Intent intent = new Intent(
+                        ListActivity.this, MainActivity.class);
+                startActivity(intent);
+                Toast.makeText(
+                        this,
+                        "No Forages to display",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+        catch (Exception e) {
+            Toast.makeText(
+                    this,
+                    "Error retrieving forages",
+                    Toast.LENGTH_LONG).show();
+        }
+
+    }
+
 
     private void initNewForageButton() {
         Button buttonNewForage = findViewById(R.id.buttonMainView);

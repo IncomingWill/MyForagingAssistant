@@ -1,5 +1,3 @@
-package com.incomingwill.myforagingassistant.model;
-
 /*
  *  Document   : Forage Data Source Class
  *  Created on : 11.17.22
@@ -16,6 +14,9 @@ package com.incomingwill.myforagingassistant.model;
  *  create list of objects from rows,
  *  and to get specific object
  */
+
+package com.incomingwill.myforagingassistant.model;
+
 
 import android.content.ContentValues;
 import android.content.Context;

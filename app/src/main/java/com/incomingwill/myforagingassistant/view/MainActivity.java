@@ -34,6 +34,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -62,6 +64,8 @@ public class MainActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.setTitle(R.string.forage_main);
+
         //instantiate private instance to provide association between views
         currentForage = new Forage();
 
@@ -72,6 +76,10 @@ public class MainActivity
         initImageButton();
         initSaveButton();
         initViewListButton();
+
+        //radio buttons for sort settings
+        initSettings();
+        initSortByClick();
     }
 
     //methods to set data from text fields into Forage Object currentForage
@@ -440,6 +448,63 @@ public class MainActivity
                 startActivity(intent);
             }
         });
+    }
+
+
+    private void initSettings() {
+
+        //get sortby, if no sortby, default value is forage name
+        String sortBy = getSharedPreferences("MyForageListPreferences",
+                Context.MODE_PRIVATE)
+                .getString("sortfield","foragename");
+
+        //get radio buttons
+        RadioButton rbName = findViewById(R.id.radioButtonByName);
+        RadioButton rbType = findViewById(R.id.radioButtonByType);
+
+        //if sorting by name, check name button <-- default
+        //if sorting by type, check type button
+        if (sortBy.equalsIgnoreCase("foragename")) {
+            rbName.setChecked(true);
+        }
+        else if (sortBy.equalsIgnoreCase("foragetype")) {
+            rbType.setChecked(true);
+        }
+
+    }
+
+    //get radio buttons privately, edit them, sort field by name or type
+    private void initSortByClick() {
+        RadioGroup rgSortBy = findViewById(R.id.radioGroupSort);
+        rgSortBy.setOnCheckedChangeListener(
+                new RadioGroup.OnCheckedChangeListener() {
+
+                    @Override
+                    public void onCheckedChanged(RadioGroup arg0, int arg1) {
+                        RadioButton rbName = findViewById(R.id.radioButtonByName);
+                        RadioButton rbType = findViewById(R.id.radioButtonByType);
+                        if (rbName.isChecked()) {
+                            getSharedPreferences(
+                                    getString(R.string.my_forage_list_preferences),
+                                    Context.MODE_PRIVATE)
+                                    .edit()
+                                    .putString(
+                                            getString(R.string.sort_field),
+                                            getString(R.string.settings_name))
+                                    .apply();
+                        }
+                        else if (rbType.isChecked()) {
+                            getSharedPreferences(
+                                    getString(R.string.my_forage_list_preferences),
+                                    Context.MODE_PRIVATE)
+                                    .edit()
+                                    .putString(
+                                            getString(R.string.sort_field),
+                                            getString(R.string.settings_type))
+                                    .apply();
+                        }
+                    }
+                });
     }
 
 }
