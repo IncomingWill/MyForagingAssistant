@@ -50,7 +50,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="***REMOVED***" />
+            android:value="" />
 
         <uses-library
             android:name="org.apache.http.legacy"
